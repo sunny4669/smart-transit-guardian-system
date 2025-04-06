@@ -37,22 +37,22 @@ const PassengerDetectionSystem = () => {
       <div className="grid grid-cols-2 gap-3">
         <div className="border rounded-lg p-3 bg-blue-50">
           <div className="text-sm font-medium mb-1">Men</div>
-          <div className="text-lg font-semibold">{detectionStatus.menCount}</div>
+          <div className="text-lg font-semibold">{detectionStatus.menCount}/18</div>
         </div>
         <div className="border rounded-lg p-3 bg-purple-50">
           <div className="text-sm font-medium mb-1">Women</div>
-          <div className="text-lg font-semibold">{detectionStatus.womenCount}</div>
+          <div className="text-lg font-semibold">{detectionStatus.womenCount}/21</div>
         </div>
         <div className="border rounded-lg p-3 bg-pink-50">
           <div className="flex items-center text-sm font-medium mb-1">
             <Accessibility className="h-4 w-4 mr-1 text-pink-600" />
             <span>Handicapped</span>
           </div>
-          <div className="text-lg font-semibold">{detectionStatus.handicappedCount}</div>
+          <div className="text-lg font-semibold">{detectionStatus.handicappedCount}/6</div>
         </div>
         <div className="border rounded-lg p-3 bg-green-50">
           <div className="text-sm font-medium mb-1">Senior Citizens</div>
-          <div className="text-lg font-semibold">{detectionStatus.seniorCount}</div>
+          <div className="text-lg font-semibold">{detectionStatus.seniorCount}/9</div>
         </div>
       </div>
 
