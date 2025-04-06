@@ -8,8 +8,10 @@ import {
   MapPin, 
   Cigarette, 
   Gauge, 
-  Tire, 
-  Bell
+  Circle, 
+  Bell,
+  Accessibility,
+  Trash2
 } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -17,9 +19,11 @@ import { Progress } from "@/components/ui/progress";
 import { useToast } from "@/components/ui/use-toast";
 import SafetyAlertModal from './SafetyAlertModal';
 import PassengerDistribution from './PassengerDistribution';
+import PassengerDetectionSystem from './PassengerDetectionSystem';
 import BusStatus from './BusStatus';
 import EmergencySystem from './EmergencySystem';
 import PaymentSystem from './PaymentSystem';
+import MiniDustbinStatus from './MiniDustbinStatus';
 
 const Dashboard = () => {
   const { toast } = useToast();
@@ -95,7 +99,7 @@ const Dashboard = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Bus Status Card */}
-        <Card className="col-span-1 md:col-span-2 lg:col-span-1">
+        <Card className="col-span-1">
           <CardHeader className="pb-2">
             <CardTitle className="flex items-center gap-2">
               <Bus className="h-5 w-5 text-blue-600" />
@@ -109,7 +113,7 @@ const Dashboard = () => {
         </Card>
 
         {/* Passenger Distribution */}
-        <Card className="col-span-1 md:col-span-2 lg:col-span-1">
+        <Card className="col-span-1">
           <CardHeader className="pb-2">
             <CardTitle className="flex items-center gap-2">
               <Users className="h-5 w-5 text-blue-600" />
@@ -122,6 +126,20 @@ const Dashboard = () => {
           </CardContent>
         </Card>
 
+        {/* Passenger Detection */}
+        <Card className="col-span-1">
+          <CardHeader className="pb-2">
+            <CardTitle className="flex items-center gap-2">
+              <Accessibility className="h-5 w-5 text-blue-600" />
+              <span>Passenger Detection</span>
+            </CardTitle>
+            <CardDescription>Real-time passenger monitoring</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <PassengerDetectionSystem />
+          </CardContent>
+        </Card>
+
         {/* Payment System */}
         <Card className="col-span-1">
           <CardHeader className="pb-2">
@@ -129,15 +147,29 @@ const Dashboard = () => {
               <CreditCard className="h-5 w-5 text-blue-600" />
               <span>Digital Payment</span>
             </CardTitle>
-            <CardDescription>Phone Pay & cashless transactions</CardDescription>
+            <CardDescription>Multiple payment options</CardDescription>
           </CardHeader>
           <CardContent>
             <PaymentSystem />
           </CardContent>
         </Card>
 
+        {/* Mini Dustbin Status */}
+        <Card className="col-span-1">
+          <CardHeader className="pb-2">
+            <CardTitle className="flex items-center gap-2">
+              <Trash2 className="h-5 w-5 text-blue-600" />
+              <span>Mini Dustbin Status</span>
+            </CardTitle>
+            <CardDescription>Cleanliness monitoring system</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <MiniDustbinStatus />
+          </CardContent>
+        </Card>
+
         {/* Emergency Systems */}
-        <Card className="col-span-1 md:col-span-2 lg:col-span-3">
+        <Card className="col-span-1 md:col-span-3">
           <CardHeader className="pb-2">
             <CardTitle className="flex items-center gap-2">
               <AlertTriangle className="h-5 w-5 text-red-600" />
@@ -154,7 +186,7 @@ const Dashboard = () => {
         </Card>
 
         {/* System Health */}
-        <Card className="col-span-1 md:col-span-2 lg:col-span-3">
+        <Card className="col-span-1 md:col-span-3">
           <CardHeader className="pb-2">
             <CardTitle>System Health</CardTitle>
           </CardHeader>
