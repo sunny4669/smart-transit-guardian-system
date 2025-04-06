@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { AlertTriangle, Cigarette, Gauge, Tire } from 'lucide-react';
+import { AlertTriangle, Cigarette, Gauge, Circle } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 interface EmergencySystemProps {
@@ -77,7 +77,7 @@ const EmergencySystem: React.FC<EmergencySystemProps> = ({
       <div className={`p-4 rounded-lg border ${busState.tireStatus === 'Good' ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'}`}>
         <div className="flex justify-between items-start mb-2">
           <h3 className="font-semibold flex items-center">
-            <Tire className="h-5 w-5 mr-2 text-blue-600" />
+            <Circle className="h-5 w-5 mr-2 text-blue-600" />
             Tire Status
           </h3>
           <span className={`px-2.5 py-0.5 rounded-full text-xs font-medium ${

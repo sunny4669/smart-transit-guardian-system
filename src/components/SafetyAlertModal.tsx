@@ -10,7 +10,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle
 } from "@/components/ui/alert-dialog";
-import { Cigarette, Gauge, Tire, Camera, MapPin, Bell } from 'lucide-react';
+import { Cigarette, Gauge, Circle, Camera, MapPin, Bell } from 'lucide-react';
 
 interface SafetyAlertModalProps {
   isOpen: boolean;
@@ -51,7 +51,7 @@ const SafetyAlertModal: React.FC<SafetyAlertModalProps> = ({
       case 'tire':
         return {
           icon: <>
-            <Tire className="h-10 w-10 text-red-600 mx-auto mb-2" />
+            <Circle className="h-10 w-10 text-red-600 mx-auto mb-2" />
             <MapPin className="h-6 w-6 text-blue-600 mx-auto mb-4" />
           </>,
           title: 'Tire Damage Detected',
