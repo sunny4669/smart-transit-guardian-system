@@ -1,18 +1,5 @@
 import React, { useState } from 'react';
-import { 
-  Bus, 
-  AlertTriangle, 
-  Users, 
-  CreditCard, 
-  MapPin, 
-  Cigarette, 
-  Gauge, 
-  Circle, 
-  Bell,
-  Accessibility,
-  Trash2,
-  ArrowLeftRight
-} from 'lucide-react';
+import { Bus, AlertTriangle, Users, CreditCard, MapPin, Cigarette, Gauge, Circle, Bell, Accessibility, Trash2, ArrowLeftRight } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -25,9 +12,10 @@ import EmergencySystem from './EmergencySystem';
 import PaymentSystem from './PaymentSystem';
 import MiniDustbinStatus from './MiniDustbinStatus';
 import ReverseScanSystem from './ReverseScanSystem';
-
 const Dashboard = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [busState, setBusState] = useState({
     brakeStatus: 'Normal',
     tireStatus: 'Good',
@@ -37,15 +25,13 @@ const Dashboard = () => {
     speed: 45,
     location: 'Central Avenue',
     nextStop: 'Tech Park Station',
-    estimatedArrival: '5 mins',
+    estimatedArrival: '5 mins'
   });
   const [isAlertModalOpen, setIsAlertModalOpen] = useState(false);
   const [alertType, setAlertType] = useState<'brake' | 'smoking' | 'tire' | null>(null);
-
   const triggerEmergency = (type: 'brake' | 'smoking' | 'tire') => {
     setAlertType(type);
     setIsAlertModalOpen(true);
-    
     if (type === 'brake') {
       setBusState({
         ...busState,
@@ -79,7 +65,6 @@ const Dashboard = () => {
       });
     }
   };
-
   const resetEmergency = () => {
     setIsAlertModalOpen(false);
     setBusState({
@@ -90,9 +75,7 @@ const Dashboard = () => {
       emergencyGateOpen: false
     });
   };
-
-  return (
-    <div className="container mx-auto p-4 max-w-7xl">
+  return <div className="container mx-auto p-4 max-w-7xl">
       <header className="mb-8 text-center">
         <h1 className="text-3xl font-bold mb-2 text-blue-700">Smart Transit Guardian System</h1>
         <p className="text-gray-600">Next-Generation AI-Powered Public Transport Safety & Management</p>
@@ -122,7 +105,7 @@ const Dashboard = () => {
             </CardTitle>
             <CardDescription>Seating allocation by category</CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="mx-0 py-[16px] rounded-none">
             <PassengerDistribution />
           </CardContent>
         </Card>
@@ -193,10 +176,7 @@ const Dashboard = () => {
             <CardDescription>Safety monitoring and alerts</CardDescription>
           </CardHeader>
           <CardContent>
-            <EmergencySystem 
-              busState={busState} 
-              triggerEmergency={triggerEmergency} 
-            />
+            <EmergencySystem busState={busState} triggerEmergency={triggerEmergency} />
           </CardContent>
         </Card>
 
@@ -233,15 +213,7 @@ const Dashboard = () => {
         </Card>
       </div>
 
-      {isAlertModalOpen && (
-        <SafetyAlertModal 
-          isOpen={isAlertModalOpen} 
-          onClose={resetEmergency} 
-          alertType={alertType} 
-        />
-      )}
-    </div>
-  );
+      {isAlertModalOpen && <SafetyAlertModal isOpen={isAlertModalOpen} onClose={resetEmergency} alertType={alertType} />}
+    </div>;
 };
-
 export default Dashboard;
