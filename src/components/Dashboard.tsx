@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { 
   Bus, 
@@ -11,7 +10,8 @@ import {
   Circle, 
   Bell,
   Accessibility,
-  Trash2
+  Trash2,
+  ArrowLeftRight
 } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -24,6 +24,7 @@ import BusStatus from './BusStatus';
 import EmergencySystem from './EmergencySystem';
 import PaymentSystem from './PaymentSystem';
 import MiniDustbinStatus from './MiniDustbinStatus';
+import ReverseScanSystem from './ReverseScanSystem';
 
 const Dashboard = () => {
   const { toast } = useToast();
@@ -137,6 +138,20 @@ const Dashboard = () => {
           </CardHeader>
           <CardContent>
             <PassengerDetectionSystem />
+          </CardContent>
+        </Card>
+
+        {/* Reverse Scan System */}
+        <Card className="col-span-1">
+          <CardHeader className="pb-2">
+            <CardTitle className="flex items-center gap-2">
+              <ArrowLeftRight className="h-5 w-5 text-blue-600" />
+              <span>Reverse Scan</span>
+            </CardTitle>
+            <CardDescription>Route history and tracking</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ReverseScanSystem />
           </CardContent>
         </Card>
 
